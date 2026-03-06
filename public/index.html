@@ -1,0 +1,29 @@
+<h2>Shop</h2>
+
+Money: <span id="money">0</span>
+
+<br><br>
+
+<input id="code">
+<button onclick="redeem()">Enter Code</button>
+
+<script>
+
+async function redeem(){
+
+let code=document.getElementById("code").value
+
+await fetch("/api/redeem",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+username:"test",
+code:code
+})
+})
+
+alert("done")
+
+}
+
+</script>
